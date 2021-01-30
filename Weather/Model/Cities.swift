@@ -7,8 +7,15 @@
 
 import Foundation
 
+var citiesArr: [cityItem] = []
 struct cityItem {
-    var name: String
+    var id:Int
+    var lat:String //широта
+    var lon:String //долгота
+    var name:String
     var weatherConditions:String
-    var degreeCelsius:Int
+    var degreeCelsius:String
+//    var weatherIconURL:String
 }
+
+let startCitiesArr = ["Москва", "Санкт-Петербург", "Красноярск", "Екатеринбург", "Казань", "Новосибирск", "Челябинск", "Самара", "Омск", "Уфа"]

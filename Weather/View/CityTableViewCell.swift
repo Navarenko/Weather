@@ -12,6 +12,8 @@ class CityTableViewCell: UITableViewCell {
     @IBOutlet weak var nameCityLabel: UILabel!
     @IBOutlet weak var weatherConditionsLabel: UILabel!
     @IBOutlet weak var degreeCelsiusLabel: UILabel!
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var substrateView: UIView!
     
     
     override func awakeFromNib() {
@@ -21,7 +23,9 @@ class CityTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+//      Закругление:
+        substrateView.layer.cornerRadius = 10
+        substrateView.layer.masksToBounds = true
     }
 
 //TODO: нужна ли анимация по нажатию?
@@ -35,7 +39,8 @@ class CityTableViewCell: UITableViewCell {
         weatherConditionsLabel.text = cityData.weatherConditions
         degreeCelsiusLabel.text = "\(cityData.degreeCelsius)°"
         //изображение
-//        let imgURLString = "https://mt21.ru" + model.pic
+//        weatherIcon.image = UIImage(contentsOfFile: cityData.weatherIconURL)
+        //TODO:
 //        categoryImage.sd_setImage(with: URL(string: imgURLString), placeholderImage: UIImage(named: "Icon-loading-1"))
     }
 
