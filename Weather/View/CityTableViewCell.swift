@@ -18,30 +18,30 @@ class CityTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //Дизайн:
         self.backgroundColor = UIColor.clear
+        //закругление
+        substrateView.layer.cornerRadius = 15
+        substrateView.layer.masksToBounds = true
+        //эффект размытия подложки
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 0.5
+        self.substrateView.insertSubview(blurEffectView, at: 0)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//      Закругление:
-        substrateView.layer.cornerRadius = 10
-        substrateView.layer.masksToBounds = true
     }
-
-//TODO: нужна ли анимация по нажатию?
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
     
     //заполняем поля ячейки данными
     func refresh(cityData: cityItem) {
         nameCityLabel.text = cityData.name
         weatherConditionsLabel.text = cityData.weatherConditions
         degreeCelsiusLabel.text = "\(cityData.degreeCelsius)°"
-        //изображение
-//        weatherIcon.image = UIImage(contentsOfFile: cityData.weatherIconURL)
-        //TODO:
-//        categoryImage.sd_setImage(with: URL(string: imgURLString), placeholderImage: UIImage(named: "Icon-loading-1"))
+        weatherIcon.image = UIImage(named: cityData.iconName)
     }
 
 }

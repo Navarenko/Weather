@@ -15,7 +15,15 @@ struct cityItem {
     var name:String
     var weatherConditions:String
     var degreeCelsius:String
-//    var weatherIconURL:String
+    var iconName:String
+    var forecasts: [forecastItem]
 }
 
-let startCitiesArr = ["Москва", "Санкт-Петербург", "Красноярск", "Екатеринбург", "Казань", "Новосибирск", "Челябинск", "Самара", "Омск", "Уфа"]
+struct forecastItem {
+    var dateOfWeek: String
+    var tempDay: String
+    var tempNight: String
+    var conditionIcon: String
+}
+
+let startCitiesArr = ["Москва", "Санкт-Петербург", "Красноярск", "Екатеринбург", "Казань", "Новосибирск", "Челябинск", "Ульяновск", "Омск", "Уфа"]
